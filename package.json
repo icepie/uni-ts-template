@@ -1,9 +1,5 @@
 {
-  "name": "shst-campus",
-  "version": "1.1.4",
-  "main": "index.js",
-  "description": "shst campus",
-  "keywords": ["campus", "components"],
+  "name": "uni-ts-template",
   "scripts": {
     "serve": "npm run dev:h5",
     "build": "npm run build:h5",
@@ -98,8 +94,8 @@
     "mini-types": "*",
     "miniprogram-api-typings": "*",
     "postcss-comment": "^2.0.0",
-    "prettier": "^2.3.2",
-    "typescript": "^4.4.2",
+    "prettier": "^2.6.2",
+    "typescript": "^4.6.3",
     "vue-eslint-parser": "^7.10.0",
     "vue-template-compiler": "^2.6.11"
   },
