@@ -135,6 +135,7 @@
 
 <script lang="ts">
 import { Prop, Vue, Component } from "vue-property-decorator";
+import { SwiperItems } from "../types/c-swiper";
 
 @Component
 export default class extends Vue {
@@ -160,26 +161,26 @@ export default class extends Vue {
   previousMargin!: string;
   @Prop({ type: String, default: "0" })
   nextMargin!: string;
-  @Prop({ type: Number, default: 250 })
+  @Prop({ type: Number, default: 320 })
   height!: number;
   // swiperItems
   @Prop({ type: Array, required: true })
-  swiperItems!: Array<any>;
-  @Prop({ type: Number, default: 30 })
+  swiperItems!: SwiperItems;
+  @Prop({ type: Number, default: 10 })
   margin!: number;
   @Prop({ type: Number, default: 20 })
   borderRadius!: number;
-  @Prop({ type: Number, default: 30 })
+  @Prop({ type: Number, default: 36 })
   titleFontSize!: number;
   @Prop({ type: String, default: "#ffffff" })
   titleColor!: string;
-  @Prop({ type: Number, default: 30 })
+  @Prop({ type: Number, default: 24 })
   subTitleFontSize!: number;
   @Prop({ type: String, default: "#ffffff" })
   subTitleColor!: string;
-  @Prop({ type: Number, default: 20 })
+  @Prop({ type: Number, default: 0 })
   dotHeight!: number;
-  @Prop({ type: Number, default: 20 })
+  @Prop({ type: Number, default: 0 })
   dotMargin!: number;
   @Prop({ type: String, default: "rgba(255, 255, 255, 0.5)" })
   SelectBG!: string;
@@ -214,8 +215,9 @@ export default class extends Vue {
 
 <style scoped>
 .content-top {
-  margin-top: 30rpx;
+  /* margin-top: 30rpx; */
   position: relative;
+  margin-bottom: 30rpx;
 }
 .content {
   overflow: hidden !important;

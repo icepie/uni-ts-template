@@ -1,7 +1,11 @@
 {
   "pages": [
     {
-      "path": "pages/index/index"
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "主页",
+        "navigationStyle": "custom"
+      }
     },
     {
       "path": "pages/time-table/time-table"
@@ -12,7 +16,7 @@
   ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "Campus",
+    "navigationBarTitleText": "air-lit-ui",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   }
