@@ -12,6 +12,9 @@
     },
     {
       "path": "pages/calendar/calendar"
+    },
+    {
+      "path": "pages/schedule/schedule"
     }
   ],
   "globalStyle": {

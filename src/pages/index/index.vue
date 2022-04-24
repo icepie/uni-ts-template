@@ -12,6 +12,10 @@
           <em class="c-iconfont icon-calendar"></em>
           <view>校历</view>
         </navigator>
+        <navigator url="/pages/schedule/schedule" open-type="navigate">
+          <em class="c-iconfont icon-time-table"></em>
+          <view>移植ing...</view>
+        </navigator>
       </c-card>
       <!-- <navigator url="/pages/tour/tour" open-type="navigate">
       <i class="c-iconfont icon-nav"></i>
@@ -29,7 +33,7 @@ import { SwiperItems } from "@/components/types/c-swiper";
 @Component({
   components: { CSwiper, CCard },
 })
-export default class App extends Vue {
+export default class IndexPage extends Vue {
   swiperItems: SwiperItems = [
     {
       img: "https://z3.ax1x.com/2021/11/13/Iy3E9J.jpg",

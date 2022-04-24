@@ -138,7 +138,7 @@ import { Prop, Vue, Component } from "vue-property-decorator";
 import { SwiperItems } from "../types/c-swiper";
 
 @Component
-export default class extends Vue {
+export default class CSwiper extends Vue {
   // swiperItems  循环对象
   // height  高度
   // margin  边距
