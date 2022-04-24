@@ -55,12 +55,14 @@
     "@dcloudio/uni-quickapp-native": "^2.0.0-32220210818002",
     "@dcloudio/uni-quickapp-webview": "^2.0.0-32220210818002",
     "@dcloudio/uni-stat": "^2.0.0-32220210818002",
+    "@types/jest": "^27.4.1",
     "@vue/shared": "^3.0.0",
     "core-js": "^3.6.5",
     "flyio": "^0.6.2",
     "regenerator-runtime": "^0.12.1",
     "sass": "^1.38.2",
     "sass-loader": "10",
+    "ts-jest": "^27.1.4",
     "vue": "^2.6.11",
     "vue-class-component": "^6.3.2",
     "vue-property-decorator": "^8.0.0",
@@ -90,7 +92,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^7.17.0",
-    "jest": "^25.4.0",
+    "jest": "^27.5.1",
     "mini-types": "*",
     "miniprogram-api-typings": "*",
     "postcss-comment": "^2.0.0",
@@ -105,5 +107,20 @@
   ],
   "uni-app": {
     "scripts": {}
+  },
+  "jest": {
+    "rootDir": "src",
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   }
 }
