@@ -6,15 +6,6 @@
         "navigationBarTitleText": "主页",
         "navigationStyle": "custom"
       }
-    },
-    {
-      "path": "pages/time-table/time-table"
-    },
-    {
-      "path": "pages/calendar/calendar"
-    },
-    {
-      "path": "pages/schedule/schedule"
     }
   ],
   "globalStyle": {

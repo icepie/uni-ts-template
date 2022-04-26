@@ -1,37 +1,15 @@
 <template>
   <view class="content">
     <c-swiper :swiperItems="swiperItems"></c-swiper>
-
-    <view>
-      <c-card title="主页">
-        <navigator url="/pages/time-table/time-table" open-type="navigate">
-          <em class="c-iconfont icon-time-table"></em>
-          <view>课表</view>
-        </navigator>
-        <navigator url="/pages/calendar/calendar" open-type="navigate">
-          <em class="c-iconfont icon-calendar"></em>
-          <view>校历</view>
-        </navigator>
-        <navigator url="/pages/schedule/schedule" open-type="navigate">
-          <em class="c-iconfont icon-time-table"></em>
-          <view>移植ing...</view>
-        </navigator>
-      </c-card>
-      <!-- <navigator url="/pages/tour/tour" open-type="navigate">
-      <i class="c-iconfont icon-nav"></i>
-      <view>校园导览</view>
-    </navigator> -->
-    </view>
   </view>
 </template>
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import CSwiper from "@/components/c-swiper/c-swiper.vue";
-import CCard from "@/components/c-card/c-card.vue";
 import { SwiperItems } from "@/components/types/c-swiper";
 
 @Component({
-  components: { CSwiper, CCard },
+  components: { CSwiper },
 })
 export default class IndexPage extends Vue {
   swiperItems: SwiperItems = [
@@ -51,7 +29,7 @@ export default class IndexPage extends Vue {
     {
       img: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_match%2F0%2F11780621658%2F0.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1619914935&t=7d98cfe6b5a2634598fc7bda871aa7c9",
       title: "进口儿童座椅",
-      subTitle: "￥698.99",
+      subTitle: "123132",
       tip: "进口",
       url: "111",
     },
@@ -64,3 +42,5 @@ page {
   background-color: #f3f4f6;
 }
 </style>
+
+<style lang="scss"></style>

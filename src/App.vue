@@ -14,8 +14,4 @@ export default Vue.extend({
 });
 </script>
 
-<style lang="scss">
-@import "@/components/styles/asse.css";
-@import "@/components/styles/iconfont.css";
-@import "@/components/styles/asse-style.scss";
-</style>
+<style lang="scss"></style>
