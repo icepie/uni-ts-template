@@ -26,7 +26,7 @@
               v-if="item.title"
               class="Text-initialization overflow"
               :style="{ fontSize: titleFontSize + 'rpx', color: titleColor }"
-              :class="[index === enjoySiwper ? 'title' : '']"
+              :class="[index === enjoySwiper ? 'title' : '']"
             >
               {{ item.title }}
             </text>
@@ -37,7 +37,7 @@
                 fontSize: subTitleFontSize + 'rpx',
                 color: subTitleColor,
               }"
-              :class="[index === enjoySiwper ? 'subTitle' : '']"
+              :class="[index === enjoySwiper ? 'subTitle' : '']"
             >
               {{ item.subTitle }}
             </text>
@@ -45,7 +45,7 @@
               class="Text-initialization"
               v-if="button"
               @click="onButClick"
-              :class="[index === enjoySiwper ? 'bt' : '']"
+              :class="[index === enjoySwiper ? 'bt' : '']"
               ><text class="bt-ico">查看详情 ➜</text></view
             >
           </view>
@@ -64,7 +64,7 @@
           v-for="(_, index) in swiperItems"
           :key="index"
           :style="{ backgroundColor: SelectBG }"
-          :class="[index === enjoySiwper ? 'Select ' : 'Unchecked']"
+          :class="[index === enjoySwiper ? 'Select ' : 'Unchecked']"
         ></view>
       </view>
       <view
@@ -78,7 +78,7 @@
           v-for="(_, index) in swiperItems"
           :key="index"
           :style="{ backgroundColor: UncheckedBG }"
-          :class="[index === enjoySiwper ? 'Select1 ' : 'Unchecked1']"
+          :class="[index === enjoySwiper ? 'Select1 ' : 'Unchecked1']"
         ></view>
       </view>
     </view>
@@ -94,7 +94,7 @@
           v-for="(_, index) in swiperItems"
           :key="index"
           :style="{ backgroundColor: SelectBG }"
-          :class="[index === enjoySiwper ? 'Select ' : 'Unchecked']"
+          :class="[index === enjoySwiper ? 'Select ' : 'Unchecked']"
         ></view>
       </view>
       <view
@@ -108,7 +108,7 @@
           v-for="(_, index) in swiperItems"
           :key="index"
           :style="{ backgroundColor: UncheckedBG }"
-          :class="[index === enjoySiwper ? 'Select1 ' : 'Unchecked1']"
+          :class="[index === enjoySwiper ? 'Select1 ' : 'Unchecked1']"
         ></view>
       </view>
     </view>
@@ -118,7 +118,7 @@
           v-for="(_, index) in swiperItems"
           :key="index"
           :style="{ backgroundColor: SelectBG }"
-          :class="[index === enjoySiwper ? 'Select ' : 'Unchecked']"
+          :class="[index === enjoySwiper ? 'Select ' : 'Unchecked']"
         ></view>
       </view>
       <view class="dot-c" :style="{ top: height - 30 - dotHeight + 'rpx' }">
@@ -126,7 +126,7 @@
           v-for="(_, index) in swiperItems"
           :key="index"
           :style="{ backgroundColor: UncheckedBG }"
-          :class="[index === enjoySiwper ? 'Select1 ' : 'Unchecked1']"
+          :class="[index === enjoySwiper ? 'Select1 ' : 'Unchecked1']"
         ></view>
       </view>
     </view>
@@ -155,7 +155,7 @@ export default class CSwiper extends Vue {
   // button 查看详情按钮是否显示 1显示 0不显示
   // previousMargin 前边距，可用于露出前一项的一小部分
   // nextMargin 后边距，可用于露出后一项的一小部分
-  // enjoySiwper 当前激活项
+  // enjoySwiper 当前激活项
 
   @Prop({ type: String, default: "0" })
   previousMargin!: string;
@@ -190,25 +190,16 @@ export default class CSwiper extends Vue {
   DotPosition!: number;
   @Prop({ type: Boolean, default: true })
   button!: boolean;
-  //   @Prop({ type: Number, default: 0 })
-  //   enjoySiwper!: number;
 
   // 当前的激活项
-  public enjoySiwper = 0;
-
-  //   swiperChange: function (e) {
-  //   this.enjoySiwper = e.detail.current;
-  // },
-  // onButClick() {
-  //   this.$emit('onButClick', this.enjoySiwper);
-  // },
+  public enjoySwiper: number = 0;
 
   onButClick(): void {
-    this.$emit("onButClick", this.enjoySiwper);
+    this.$emit("onButClick", this.enjoySwiper);
   }
 
   swiperChange(e: CustomEvent): void {
-    this.enjoySiwper = e.detail.current;
+    this.enjoySwiper = e.detail.current;
   }
 }
 </script>
