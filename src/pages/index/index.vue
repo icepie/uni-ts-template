@@ -7,6 +7,7 @@
 import { Component, Vue } from "vue-property-decorator";
 import CSwiper from "@/components/c-swiper/c-swiper.vue";
 import { SwiperItems } from "@/components/types/c-swiper";
+import toast from "@/components/utils/toast";
 
 @Component({
   components: { CSwiper },
@@ -34,6 +35,12 @@ export default class IndexPage extends Vue {
       url: "111",
     },
   ];
+
+  async onShow() {
+    // toast
+    await toast.toast("这是主页哦");
+    await toast.confirm("这是一个弹窗", "确定?");
+  }
 }
 </script>
 
