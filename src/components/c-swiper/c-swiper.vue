@@ -41,7 +41,11 @@
             >
               {{ item.subTitle }}
             </text>
-            <view class="Text-initialization bt" @click="onButClick"
+            <view
+              class="Text-initialization"
+              v-if="button"
+              @click="onButClick"
+              :class="[index === enjoySwiper ? 'bt' : '']"
               ><text class="bt-ico">查看详情 ➜</text></view
             >
           </view>
