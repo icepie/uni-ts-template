@@ -143,7 +143,7 @@ export default defineComponent({
     previousMargin: { type: String, default: "0" },
     nextMargin: { type: String, default: "0" },
     height: { type: Number, default: 320 },
-    swiperItems: { type: Object as PropType<SwiperItems>, required: true },
+    swiperItems: { type: Array as PropType<SwiperItems>, required: true },
     margin: { type: Number, default: 10 },
     borderRadius: { type: Number, default: 20 },
     titleFontSize: { type: Number, default: 36 },
