@@ -41,11 +41,7 @@
             >
               {{ item.subTitle }}
             </text>
-            <view
-              class="Text-initialization"
-              v-if="button"
-              @click="onButClick"
-              :class="[index === enjoySwiper ? 'bt' : '']"
+            <view class="Text-initialization bt" @click="onButClick"
               ><text class="bt-ico">查看详情 ➜</text></view
             >
           </view>
@@ -134,11 +130,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "@vue/composition-api";
+import { defineComponent, PropType, ref } from "@vue/composition-api";
 import { SwiperItems } from "../types/c-swiper";
 
 export default defineComponent({
-  // 类型推断启用
+  name: "c-swiper",
+  emits: ["onButClick"],
   props: {
     previousMargin: { type: String, default: "0" },
     nextMargin: { type: String, default: "0" },
@@ -157,18 +154,22 @@ export default defineComponent({
     DotPosition: { type: Number, default: 1 },
     button: { type: Boolean, default: true },
   },
-  methods: {
-    onButClick(): void {
-      this.$emit("onButClick", this.enjoySwiper);
-    },
+  setup(_props, { emit }) {
+    const enjoySwiper = ref(0);
 
-    swiperChange(e: CustomEvent): void {
-      this.enjoySwiper = e.detail.current;
-    },
-  },
-  data() {
+    const onButClick = () => {
+      console.log(enjoySwiper.value);
+      emit("onButClick", enjoySwiper.value);
+    };
+
+    const swiperChange = (e: CustomEvent): void => {
+      enjoySwiper.value = e.detail.current;
+    };
+
     return {
-      enjoySwiper: 0,
+      enjoySwiper,
+      onButClick,
+      swiperChange,
     };
   },
 });

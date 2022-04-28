@@ -18,7 +18,7 @@ export default defineComponent({
     onShow(async () => {
       // toast
       await toast.toast("这是主页哦");
-      await toast.confirm("这是一个弹窗", "确定?");
+      // await toast.confirm("这是一个弹窗", "确定?");
     });
 
     const swiperItems: SwiperItems = [
