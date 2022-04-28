@@ -14,6 +14,7 @@ export default defineComponent({
   components: { CSwiper },
   setup() {
     onLoad(() => console.log("---onload---"));
+
     onShow(async () => {
       // toast
       await toast.toast("这是主页哦");
