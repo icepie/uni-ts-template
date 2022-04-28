@@ -134,74 +134,44 @@
 </template>
 
 <script lang="ts">
-import { Prop, Vue, Component } from "vue-property-decorator";
+import { defineComponent, PropType } from "@vue/composition-api";
 import { SwiperItems } from "../types/c-swiper";
 
-@Component
-export default class CSwiper extends Vue {
-  // swiperItems  循环对象
-  // height  高度
-  // margin  边距
-  // borderRadius 圆角
-  // titleFontSize 标题大小
-  // titleColor 标题颜色
-  // subTitleFontSize 副标题大小
-  // subTitleColor 副标题颜色
-  // dotHeight 指示点距离轮播底部高度
-  // dotMargin 指示点侧边距
-  // SelectBG 指示点未选中颜色
-  // UncheckedBG 指示点选中颜色
-  // DotPosition 指示点位置 1左侧 2右侧 3居中
-  // button 查看详情按钮是否显示 1显示 0不显示
-  // previousMargin 前边距，可用于露出前一项的一小部分
-  // nextMargin 后边距，可用于露出后一项的一小部分
-  // enjoySwiper 当前激活项
+export default defineComponent({
+  // 类型推断启用
+  props: {
+    previousMargin: { type: String, default: "0" },
+    nextMargin: { type: String, default: "0" },
+    height: { type: Number, default: 320 },
+    swiperItems: { type: Object as PropType<SwiperItems>, required: true },
+    margin: { type: Number, default: 10 },
+    borderRadius: { type: Number, default: 20 },
+    titleFontSize: { type: Number, default: 36 },
+    titleColor: { type: String, default: "#ffffff" },
+    subTitleFontSize: { type: Number, default: 24 },
+    subTitleColor: { type: String, default: "#ffffff" },
+    dotHeight: { type: Number, default: 0 },
+    dotMargin: { type: Number, default: 0 },
+    SelectBG: { type: String, default: "rgba(255, 255, 255, 0.5)" },
+    UncheckedBG: { type: String, default: "rgba(255, 255, 255, 1)" },
+    DotPosition: { type: Number, default: 1 },
+    button: { type: Boolean, default: true },
+  },
+  methods: {
+    onButClick(): void {
+      this.$emit("onButClick", this.enjoySwiper);
+    },
 
-  @Prop({ type: String, default: "0" })
-  previousMargin!: string;
-  @Prop({ type: String, default: "0" })
-  nextMargin!: string;
-  @Prop({ type: Number, default: 320 })
-  height!: number;
-  // swiperItems
-  @Prop({ type: Array, required: true })
-  swiperItems!: SwiperItems;
-  @Prop({ type: Number, default: 10 })
-  margin!: number;
-  @Prop({ type: Number, default: 20 })
-  borderRadius!: number;
-  @Prop({ type: Number, default: 36 })
-  titleFontSize!: number;
-  @Prop({ type: String, default: "#ffffff" })
-  titleColor!: string;
-  @Prop({ type: Number, default: 24 })
-  subTitleFontSize!: number;
-  @Prop({ type: String, default: "#ffffff" })
-  subTitleColor!: string;
-  @Prop({ type: Number, default: 0 })
-  dotHeight!: number;
-  @Prop({ type: Number, default: 0 })
-  dotMargin!: number;
-  @Prop({ type: String, default: "rgba(255, 255, 255, 0.5)" })
-  SelectBG!: string;
-  @Prop({ type: String, default: "rgba(255, 255, 255, 1)" })
-  UncheckedBG!: string;
-  @Prop({ type: Number, default: 1 })
-  DotPosition!: number;
-  @Prop({ type: Boolean, default: true })
-  button!: boolean;
-
-  // 当前的激活项
-  public enjoySwiper: number = 0;
-
-  onButClick(): void {
-    this.$emit("onButClick", this.enjoySwiper);
-  }
-
-  swiperChange(e: CustomEvent): void {
-    this.enjoySwiper = e.detail.current;
-  }
-}
+    swiperChange(e: CustomEvent): void {
+      this.enjoySwiper = e.detail.current;
+    },
+  },
+  data() {
+    return {
+      enjoySwiper: 0,
+    };
+  },
+});
 </script>
 
 <style scoped>
