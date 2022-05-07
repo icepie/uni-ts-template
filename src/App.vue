@@ -1,31 +1,21 @@
 <script lang="ts">
 import Vue from "vue";
-
+import { FitH5Page } from "@/utils/h5";
 import { onLaunch } from "uni-composition-api";
 
 export default Vue.extend({
   mpType: "app",
   setup() {
-    onLaunch(() => {
+    onLaunch(async () => {
       console.log("App Launch");
       // #ifdef H5
-      uni.getSystemInfo({
-        success(res) {
-          const isMobile: boolean = /iOS|Android/i.test(res.system);
-          if (!isMobile) {
-            const basic: string = "/static/pc.html";
-            if (res.windowWidth > 768 && !/PC/i.test(location.href)) {
-              window.location.replace(basic + window.location.hash);
-            }
-            // 监听窗口大小变化
-            window.addEventListener("resize", () => {
-              if (window.innerWidth > 768) {
-                window.location.replace(basic + window.location.hash);
-              }
-            });
-          }
-        },
-      });
+      const [err, systemInfo] = await uni.getSystemInfo({});
+      if (err) {
+        console.log("GetSystemInfo error: ", err);
+      } else {
+        // H5自适应屏幕宽度 (iframe方案)
+        await FitH5Page(systemInfo);
+      }
       // #endif
     });
   },
