@@ -1153,6 +1153,11 @@
   resolved "https://registry.nlark.com/@dcloudio/types/download/@dcloudio/types-2.5.3.tgz#56f064616d876ba672a343af538d88f8fcad4702"
   integrity sha1-VvBkYW2Ha6Zyo0OvU42I+PytRwI=
 
+"@dcloudio/types@^2.0.16":
+  version "2.6.6"
+  resolved "https://registry.npmmirror.com/@dcloudio/types/-/types-2.6.6.tgz#66227f83ee0fb7902dc27ebb0a1bb332e8cf31b9"
+  integrity sha512-ChLbkLuXfWxaj6VcsCcspIyC9+xIYKAJX++f50oCzUWbApslGwRpJ12wqS9k5Eg5euaHSzmyE0JfpZlNFpBk6w==
+
 "@dcloudio/uni-app-plus@^2.0.0-32220210818002":
   version "2.0.0-32220210818002"
   resolved "https://registry.nlark.com/@dcloudio/uni-app-plus/download/@dcloudio/uni-app-plus-2.0.0-32220210818002.tgz#a90dbd3a7aa25d341ad53d7656248c25a9632632"
@@ -7909,6 +7914,13 @@ lru-cache@^6.0.0:
   integrity sha1-bW/mVw69lqr5D8rR2vo7JWbbOpQ=
   dependencies:
     yallist "^4.0.0"
+
+luch-request@^3.0.7:
+  version "3.0.7"
+  resolved "https://registry.npmmirror.com/luch-request/-/luch-request-3.0.7.tgz#5894fc3d3ff62622b042c84953c1192ccdeafaa5"
+  integrity sha512-rYTgAO0CiAMjuotvwhtEREQ6mh/qdgYO2a+cKDv2VPnww/MdNaHMGMpsPY6VvJCOtfH7kV9lDujjuihhlu1xmg==
+  dependencies:
+    "@dcloudio/types" "^2.0.16"
 
 make-dir@^2.0.0, make-dir@^2.1.0:
   version "2.1.0"
