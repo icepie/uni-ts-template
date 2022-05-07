@@ -1,18 +1,22 @@
 <template>
   <view class="content">
     <c-swiper :swiperItems="swiperItems"></c-swiper>
+    {{ $t("message.hello") }}
+    <c-hello></c-hello>
   </view>
 </template>
 <script lang="ts">
 import CSwiper from "@/components/c-swiper/c-swiper.vue";
 import { SwiperItems } from "@/components/types/c-swiper";
 import { onLoad, onShow } from "uni-composition-api";
-import { defineComponent } from "@vue/composition-api";
+import { defineComponent, ref } from "@vue/composition-api";
 import toast from "@/components/utils/toast";
 
 export default defineComponent({
   components: { CSwiper },
   setup() {
+    const text = ref();
+
     onLoad(() => console.log("---onload---"));
 
     onShow(async () => {

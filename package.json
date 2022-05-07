@@ -65,7 +65,8 @@
     "sass-loader": "10",
     "ts-jest": "^27.1.4",
     "uni-composition-api": "^0.6.1",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-i18n": "^8.9.0"
   },
   "devDependencies": {
     "@babel/plugin-syntax-typescript": "^7.2.0",
