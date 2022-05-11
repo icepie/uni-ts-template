@@ -19,12 +19,15 @@
       "@dcloudio/types",
       "miniprogram-api-typings",
       "mini-types",
-      "jest"
+      "unplugin-vue2-script-setup/types"
     ],
     "paths": {
       "@/*": ["./src/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+  },
+  "vueCompilerOptions": {
+    "experimentalCompatMode": 2
   },
   "exclude": ["node_modules", "unpackage", "src/**/*.nvue"]
 }

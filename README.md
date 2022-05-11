@@ -15,3 +15,11 @@
 - composition-api
 
 - ref
+
+- setup script
+
+- i18n
+
+## 更多
+
+好像走的比较远了....干脆直接用 `Vue3` 的模板吧

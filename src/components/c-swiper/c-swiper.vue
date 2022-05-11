@@ -1,5 +1,5 @@
 <template>
-  <view class="content-top">
+  <div class="content-top">
     <swiper
       @change="swiperChange"
       :style="{ height: height + 'rpx' }"
@@ -10,7 +10,7 @@
       :next-margin="nextMargin"
     >
       <swiper-item v-for="(item, index) in swiperItems" :key="index">
-        <view
+        <div
           class="content"
           :style="{
             height: height + 'rpx',
@@ -20,8 +20,8 @@
           }"
         >
           <image :src="item.img" mode="aspectFill" class="swiper-img"></image>
-          <view class="mask"></view>
-          <view class="written">
+          <div class="mask"></div>
+          <div class="written">
             <text
               v-if="item.title"
               class="Text-initialization overflow"
@@ -41,128 +41,126 @@
             >
               {{ item.subTitle }}
             </text>
-            <view
+            <div
               class="Text-initialization"
               v-if="button"
               @click="onButClick"
               :class="[index === enjoySwiper ? 'bt' : '']"
-              ><text class="bt-ico">查看详情 ➜</text></view
             >
-          </view>
-        </view>
+              <text class="bt-ico">查看详情 ➜</text>
+            </div>
+          </div>
+        </div>
       </swiper-item>
     </swiper>
-    <view v-if="DotPosition === 1">
-      <view
+    <div v-if="DotPosition === 1">
+      <div
         class="dot"
         :style="{
           top: height - 30 - dotHeight + 'rpx',
           left: margin + 30 + dotMargin + 'rpx',
         }"
       >
-        <view
+        <div
           v-for="(_, index) in swiperItems"
           :key="index"
           :style="{ backgroundColor: SelectBG }"
           :class="[index === enjoySwiper ? 'Select ' : 'Unchecked']"
-        ></view>
-      </view>
-      <view
+        ></div>
+      </div>
+      <div
         class="dot"
         :style="{
           top: height - 30 - dotHeight + 'rpx',
           left: margin + 30 + dotMargin + 'rpx',
         }"
       >
-        <view
+        <div
           v-for="(_, index) in swiperItems"
           :key="index"
           :style="{ backgroundColor: UncheckedBG }"
           :class="[index === enjoySwiper ? 'Select1 ' : 'Unchecked1']"
-        ></view>
-      </view>
-    </view>
-    <view v-if="DotPosition === 2">
-      <view
+        ></div>
+      </div>
+    </div>
+    <div v-if="DotPosition === 2">
+      <div
         class="dot"
         :style="{
           top: height - 30 - dotHeight + 'rpx',
           right: margin + 30 + dotMargin + 'rpx',
         }"
       >
-        <view
+        <div
           v-for="(_, index) in swiperItems"
           :key="index"
           :style="{ backgroundColor: SelectBG }"
           :class="[index === enjoySwiper ? 'Select ' : 'Unchecked']"
-        ></view>
-      </view>
-      <view
+        ></div>
+      </div>
+      <div
         class="dot"
         :style="{
           top: height - 30 - dotHeight + 'rpx',
           right: margin + 30 + dotMargin + 'rpx',
         }"
       >
-        <view
+        <div
           v-for="(_, index) in swiperItems"
           :key="index"
           :style="{ backgroundColor: UncheckedBG }"
           :class="[index === enjoySwiper ? 'Select1 ' : 'Unchecked1']"
-        ></view>
-      </view>
-    </view>
-    <view v-if="DotPosition === 3">
-      <view class="dot-c" :style="{ top: height - 30 - dotHeight + 'rpx' }">
-        <view
+        ></div>
+      </div>
+    </div>
+    <div v-if="DotPosition === 3">
+      <div class="dot-c" :style="{ top: height - 30 - dotHeight + 'rpx' }">
+        <div
           v-for="(_, index) in swiperItems"
           :key="index"
           :style="{ backgroundColor: SelectBG }"
           :class="[index === enjoySwiper ? 'Select ' : 'Unchecked']"
-        ></view>
-      </view>
-      <view class="dot-c" :style="{ top: height - 30 - dotHeight + 'rpx' }">
-        <view
+        ></div>
+      </div>
+      <div class="dot-c" :style="{ top: height - 30 - dotHeight + 'rpx' }">
+        <div
           v-for="(_, index) in swiperItems"
           :key="index"
           :style="{ backgroundColor: UncheckedBG }"
           :class="[index === enjoySwiper ? 'Select1 ' : 'Unchecked1']"
-        ></view>
-      </view>
-    </view>
-  </view>
+        ></div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "@vue/composition-api";
-import { props } from "./props";
-
-export default defineComponent({
+export default {
   name: "c-swiper",
-  emits: ["onButClick"],
   props,
-  setup(_props, { emit }) {
-    const enjoySwiper = ref(0);
-
-    const onButClick = () => {
-      console.log(enjoySwiper.value);
-      emit("onButClick", enjoySwiper.value);
-    };
-
-    const swiperChange = (e: CustomEvent): void => {
-      enjoySwiper.value = e.detail.current;
-    };
-
-    return {
-      enjoySwiper,
-      onButClick,
-      swiperChange,
-    };
-  },
-});
+};
 </script>
 
-<style scoped>
+<script lang="ts" setup>
+import { ref } from "@vue/composition-api";
+import { defineEmits } from "@vue/runtime-core";
+import { props } from "./props";
+
+const emit = defineEmits(["onButClick"]);
+
+const enjoySwiper = ref(0);
+
+const onButClick = () => {
+  console.log(enjoySwiper.value);
+  emit("onButClick", enjoySwiper.value);
+};
+
+const swiperChange = (e: CustomEvent): void => {
+  enjoySwiper.value = e.detail.current;
+};
+</script>
+
+<style lang="scss" scoped>
 .content-top {
   /* margin-top: 30rpx; */
   position: relative;
