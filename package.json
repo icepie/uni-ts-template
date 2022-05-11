@@ -3,6 +3,7 @@
   "scripts": {
     "serve": "npm run dev:h5",
     "build": "npm run build:h5",
+    "cli": "uniapp-cli-run",
     "build:app-plus": "cross-env NODE_ENV=production UNI_PLATFORM=app-plus vue-cli-service uni-build",
     "build:custom": "cross-env NODE_ENV=production uniapp-cli custom",
     "build:h5": "cross-env NODE_ENV=production UNI_PLATFORM=h5 vue-cli-service uni-build",
@@ -67,6 +68,7 @@
     "sass-loader": "10",
     "ts-jest": "^27.1.4",
     "uni-composition-api": "^0.6.1",
+    "uniapp-cli-run": "https://github.com/icepie/uniapp-cli-run",
     "unplugin-vue2-script-setup": "^0.10.2",
     "vue": "^2.6.11",
     "vue-i18n": "^8.9.0"

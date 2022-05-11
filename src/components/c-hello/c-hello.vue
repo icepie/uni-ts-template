@@ -11,7 +11,6 @@ import { defineComponent, ref } from "@vue/composition-api";
 export default defineComponent({
   setup() {
     const name = ref("world");
-
     const add = () => {
       name.value = name.value + "1";
     };
